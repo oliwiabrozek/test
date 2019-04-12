@@ -1,4 +1,4 @@
-﻿namespace GeneratorTestow
+﻿namespace TestGenerator
 {
 	partial class Form1
 	{

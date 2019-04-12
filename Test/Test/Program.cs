@@ -8,7 +8,6 @@ namespace Test
 {
 	static class Program
 	{
-		// PROGRAM KAMILA
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>

@@ -4,26 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace testLibrary
+namespace TestLibrary
 {
-	public class Test
-	{
-		ICollection<Question> questionsList;
-	}
-
     public class Question
     {
 
     }
-	
+
 	public class Response
 	{
 
 	}
 
-	public class Score 
+	public class Score
 	{
 
 	}
-
 }

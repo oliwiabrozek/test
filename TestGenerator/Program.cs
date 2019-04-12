@@ -4,11 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace GeneratorTestow
+namespace TestGenerator
 {
 	static class Program
 	{
-		// PROGRAM OLIWII
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>

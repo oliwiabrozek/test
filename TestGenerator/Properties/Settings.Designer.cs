@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GeneratorTestow.Properties
+namespace TestGenerator.Properties
 {
 
 
