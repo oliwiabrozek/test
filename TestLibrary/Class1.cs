@@ -6,18 +6,33 @@ using System.Threading.Tasks;
 
 namespace TestLibrary
 {
+	public class Test
+	{
+		List<Question> questionsList;
+		double percentToPass;
+		String testName;
+	}
+
+	public class Author
+	{
+		string name;
+	}
+
     public class Question
     {
-
+		String question;
+		List<Answer> answersList;
+		// czas na odpowiedź
     }
 
-	public class Response
+	public class Answer
 	{
-
+		string answer;
+		double points; // dla tego konkretnego pytania
 	}
 
 	public class Score
 	{
-
+		// liczy wynik dla całego testu? 
 	}
 }
