@@ -16,5 +16,10 @@ namespace TestGenerator
 		{
 			InitializeComponent();
 		}
+
+		private void authorTextBox_TextChanged(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

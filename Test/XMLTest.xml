@@ -14,9 +14,7 @@
       <answer points="5">22</answer>
       <answer points="-5">-100</answer>
     </question>
-    <question
-			content="Pytanie 2"
-			time="40"
+    <question content="Pytanie 2" time="40"
 		>
       <answer points="1">Odpowiedź 1</answer>
       <answer points="0">Odpowiedź 2</answer>
