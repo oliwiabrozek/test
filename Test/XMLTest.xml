@@ -1,21 +1,27 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 
-<test>
+<test name="nazwa testu" percent_to_pass="70">
 
-  <question>
-    Ile lat ma Kamil?
-    <response>
-      100
-    </response>
-    <response>
-      1000
-    </response>
-    <response>
-      1
-    </response>
-    <response>
-      21
-    </response>
-  </question>
+  <authors>
+    <author>Oliwia</author>
+    <author>Kamil</author>
+  </authors>
 
+  <questions>
+    <question content="Ile lat ma Kamil?" time="10">
+      <answer points="-5">1000</answer>
+      <answer points="0">21</answer>
+      <answer points="5">22</answer>
+      <answer points="-5">-100</answer>
+    </question>
+    <question
+			content="Pytanie 2"
+			time="40"
+		>
+      <answer points="1">Odpowiedź 1</answer>
+      <answer points="0">Odpowiedź 2</answer>
+      <answer points="0">Odpowiedź 3</answer>
+      <answer points="0">Odpowiedź 4</answer>
+    </question>
+  </questions>
 </test>
