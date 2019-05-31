@@ -22,6 +22,7 @@ namespace TestLibrary
     {
 		String question;
 		List<Answer> answersList;
+		uint index;
 		// czas na odpowiedź
     }
 
