@@ -6,30 +6,30 @@ using System.Threading.Tasks;
 
 namespace TestLibrary
 {
-	public class T
+	public class Test
 	{
-		List<Question> questionsList;
-		double percentToPass;
-		String testName;
+		public List<Question> questionsList;
+		public double percentToPass;
+		public String testName;
 	}
 
 	public class Author
 	{
-		string name;
+		public string name;
 	}
 
     public class Question
     {
-		String question;
-		List<Answer> answersList;
-		uint index;
+        public String question;
+        public List<Answer> answersList;
+        public uint index;
 		// czas na odpowiedź
     }
 
 	public class Answer
 	{
-		public string answer;
-		double points; // dla tego konkretnego pytania
+        public string answer;
+        public double points; // dla tego konkretnego pytania
 		public void pytaj()
 		{
 

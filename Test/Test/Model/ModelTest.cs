@@ -11,8 +11,7 @@ namespace Test.Model
     class ModelTest
     {
         XmlReader XmlReader = new XmlReader(ModelLoadPath());
-		T test1 = new T();
-		
+        TestLibrary.Test test = new TestLibrary.Test();
 		
 		
         
@@ -20,14 +19,12 @@ namespace Test.Model
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
             return path;
-			Answer a = new Answer();
-			a.pytaj();
 		}
 
         public String LoadTestName()
-        {
-            
-            return XmlReader.GetAttributeValue(0, "test", "name");
+        { 
+            test.testName = XmlReader.GetAttributeValue(0, "test", "name");
+            return test.testName;
         }
     }
 
