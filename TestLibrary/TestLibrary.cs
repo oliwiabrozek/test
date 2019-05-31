@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestLibrary
 {
-	public class Test
+	public class T
 	{
 		List<Question> questionsList;
 		double percentToPass;
@@ -28,8 +28,12 @@ namespace TestLibrary
 
 	public class Answer
 	{
-		string answer;
+		public string answer;
 		double points; // dla tego konkretnego pytania
+		public void pytaj()
+		{
+
+		}
 	}
 
 	public class Score

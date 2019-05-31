@@ -4,21 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
 using TestLibrary;
+
 namespace Test.Model
 {
     class ModelTest
     {
         XmlReader XmlReader = new XmlReader(ModelLoadPath());
-        TestLibrary.Test xd = new TestLibrary.Test();
-        Answer aa = new Answer();
+		T test1 = new T();
+		
+		
+		
         
         public  static String ModelLoadPath()
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
             return path;
-        }
+			Answer a = new Answer();
+			a.pytaj();
+		}
 
         public String LoadTestName()
         {
