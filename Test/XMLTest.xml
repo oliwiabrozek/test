@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-
-<test name="nazwa testu" percent_to_pass="70">
-
+  <test name="nazwa testu" percent_to_pass="70">
   <authors>
     <author>Oliwia</author>
     <author>Kamil</author>
@@ -14,8 +12,7 @@
       <answer points="5">22</answer>
       <answer points="-5">-100</answer>
     </question>
-    <question content="Pytanie 2" time="40"
-		>
+    <question content="Pytanie 2" time="40">
       <answer points="1">Odpowiedź 1</answer>
       <answer points="0">Odpowiedź 2</answer>
       <answer points="0">Odpowiedź 3</answer>
