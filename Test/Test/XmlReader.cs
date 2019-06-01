@@ -27,8 +27,6 @@ namespace Test
                 MessageBox.Show("Something is wrong, file XMLTest.xml does not exist. ");
                 System.Environment.Exit(0);
             }
-            //Console.WriteLine("po załądowaniu pliku");
-            //LoadQuestions();
         }
 
         public int GetNumberOfItems(string name) //zwraca liczbę interesujących mnie znaczników w dokumencie XML
@@ -53,8 +51,9 @@ namespace Test
 
             return ListOfAnswers;
         }
+        
 
-        /*public List<Question> LoadQuestions()
+        public List<Question> LoadQuestions()
         {
             int n = GetNumberOfItems("question");
             if (n <= 0)
@@ -74,25 +73,6 @@ namespace Test
                 Console.WriteLine("Pytanie: " + i.question + i.index);
             }
             return question;
-        }*/
-
-        public Question LoadQuestion(int index)
-        {
-            Console.WriteLine("halo alo");
-            int n = GetNumberOfItems("question");
-            if (n <= 0)
-            {
-                MessageBox.Show("There are no questions in the XML file.");
-                System.Environment.Exit(0);
-            }
-            if(index == n)
-            {
-                MessageBox.Show("End.");
-                System.Environment.Exit(0);
-            }
-            //List<Question> question = new List<Question>();
-            Question tmp = new Question(GetAttributeValue(index, "question", "content"), uint.Parse(GetAttributeValue(index, "question", "index")));
-            return tmp;
         }
     }
 }

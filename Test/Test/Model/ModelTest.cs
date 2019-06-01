@@ -17,33 +17,16 @@ namespace Test.Model
 
         public  static String ModelLoadPath()
         {
-            //Console.WriteLine("Model ModelLoadPath()");
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
             return path;
 		}
 
-        public String LoadTestName()
+        public TestLibrary.Test TestObiektów()
         {
-           // Console.WriteLine("Model LoadTestName()");
-            libraryT.testName = xml.GetAttributeValue(0, "test", "name");
-            return libraryT.testName;
+            TestLibrary.Test tmp = new TestLibrary.Test(xml.GetAttributeValue(0, "test", "name"), 12, xml.LoadQuestions());
+            return tmp;
         }
 
-        public String LoadQuestion(int index)
-        {
-            Question tmp = xml.LoadQuestion(index);
-            Console.WriteLine("pustka?: " + tmp.question);
-            return tmp.question;
-        }
-
-        /*public List<Question> LoadQuestions()
-        {
-            XmlDocument xmll =  
-            List<Question> question = (
-                from question in )
-
-            return question;
-        } */
     }
 
 }

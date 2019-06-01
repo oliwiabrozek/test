@@ -11,6 +11,13 @@ namespace TestLibrary
         public List<Question> questionsList;
         public double percentToPass;
 		public String testName;
+        public Test() { }
+        public Test(String name, double percentToPass, List<Question> questionList)
+        {
+            this.testName = name;
+            this.percentToPass = percentToPass;
+            this.questionsList = questionList;
+        }
 	}
 
 	public class Author
@@ -23,7 +30,11 @@ namespace TestLibrary
         public String question;
         public List<Answer> answersList;
         public uint index;
-        public Question() { }
+        public Question () {}
+        public Question(String question)
+        {
+            this.question = question;
+        }
         public Question(String question,/* List<Answer> answerList,*/ uint index)
         {
             this.question = question;

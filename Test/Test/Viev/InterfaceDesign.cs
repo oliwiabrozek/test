@@ -11,8 +11,7 @@ namespace Test.Viev
        //String Path { set; } //odkomentować jeszcze Form1.Designer.cs
         String TestName { set; }
         String QuestionValue { set; }
-        event Action LoadPath, LoadTestName;
-
+        event Action LoadTestName;
         event Action<int> LoadQuestions;
     }
 }

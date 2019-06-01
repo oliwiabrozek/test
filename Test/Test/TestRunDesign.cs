@@ -13,22 +13,15 @@ namespace Test
 {
     public partial class TestRunDesign : UserControl, InterfaceDesign
     {
-        public event Action LoadPath, LoadTestName;
+        public event Action LoadTestName;
         public event Action<int> LoadQuestions;
         int index = 0;
         public TestRunDesign()
         {
             InitializeComponent();
-            //Console.WriteLine("TestRunDesigner konstruktor");
 
         }
 
-       /* public String Path
-        {
-            set
-            {             
-            }
-        }*/
         public String TestName
         {
             set
@@ -49,8 +42,6 @@ namespace Test
 
         private void TestRunDesign_Load(object sender, EventArgs e)
         {
-            if (LoadPath != null)
-                LoadPath();
             if (LoadTestName != null)
                 LoadTestName();
             if (LoadQuestions != null) //pierwsze pytanie
