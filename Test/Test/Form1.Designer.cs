@@ -33,17 +33,16 @@
             // 
             // testRunDesign
             // 
-            this.testRunDesign.Location = new System.Drawing.Point(12, 12);
+            this.testRunDesign.Location = new System.Drawing.Point(2, 12);
             this.testRunDesign.Name = "testRunDesign";
-            testRunDesign.Path = null;
-            this.testRunDesign.Size = new System.Drawing.Size(776, 350);
+            this.testRunDesign.Size = new System.Drawing.Size(786, 312);
             this.testRunDesign.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 362);
+            this.ClientSize = new System.Drawing.Size(800, 327);
             this.Controls.Add(this.testRunDesign);
             this.Name = "Form1";
             this.Text = "Test";

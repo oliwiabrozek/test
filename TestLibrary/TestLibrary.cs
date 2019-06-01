@@ -8,8 +8,8 @@ namespace TestLibrary
 {
 	public class Test
 	{
-		public List<Question> questionsList;
-		public double percentToPass;
+        public List<Question> questionsList;
+        public double percentToPass;
 		public String testName;
 	}
 
@@ -23,6 +23,13 @@ namespace TestLibrary
         public String question;
         public List<Answer> answersList;
         public uint index;
+        public Question() { }
+        public Question(String question,/* List<Answer> answerList,*/ uint index)
+        {
+            this.question = question;
+            //this.answersList = answersList;
+            this.index = index;
+        }
 		// czas na odpowiedź
     }
 

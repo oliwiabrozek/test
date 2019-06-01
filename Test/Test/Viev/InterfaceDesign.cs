@@ -8,9 +8,11 @@ namespace Test.Viev
 {
     interface InterfaceDesign
     {
-        String Path { set; }
+       //String Path { set; } //odkomentować jeszcze Form1.Designer.cs
         String TestName { set; }
-        //String TestName { set; get; }
+        String QuestionValue { set; }
         event Action LoadPath, LoadTestName;
+
+        event Action<int> LoadQuestions;
     }
 }
