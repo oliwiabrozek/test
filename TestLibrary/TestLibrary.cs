@@ -8,21 +8,50 @@ namespace TestLibrary
 {
 	public class Test
 	{
-        public List<Question> questionsList;
+
+		public List<Question> questionsList;
         public double percentToPass;
 		public String testName;
-        public Test() { }
+        public Test()
+		{
+			questionsList = new List<Question> { };
+		}
         public Test(String name, double percentToPass, List<Question> questionList)
         {
+			questionsList = new List<Question> { };
             this.testName = name;
             this.percentToPass = percentToPass;
             this.questionsList = questionList;
         }
+
+		public void addQuestion(Question question)
+		{
+			questionsList.Add(question);
+		}
+
+		public void addAnswer(int questionIndex, Answer answer)
+		{
+			//questionsList[questionIndex].
+		}
+
+
 	}
 
 	public class Author
 	{
 		public string name;
+
+		public Author(string name)
+		{
+			this.name = name;
+		}
+
+		public string Name
+		{
+			get { return this.name;}
+			set { name = value; }
+		}
+
 	}
 
     public class Question
@@ -33,14 +62,18 @@ namespace TestLibrary
         public Question () {}
         public Question(String question)
         {
+			this.answersList = new List<Answer> { };
             this.question = question;
         }
         public Question(String question,/* List<Answer> answerList,*/ uint index)
         {
-            this.question = question;
-            //this.answersList = answersList;
+			this.answersList = new List<Answer> { };
+			this.question = question;
             this.index = index;
         }
+
+		
+		
 		// czas na odpowiedź
     }
 
@@ -48,9 +81,14 @@ namespace TestLibrary
 	{
         public string answer;
         public double points; // dla tego konkretnego pytania
-		public void pytaj()
-		{
+		private uint index;
+		private uint questionIndex; //indeks pytania dla tej odpowiedzi
 
+		//mój konstruktor - Oliwia
+		public Answer(string answer, uint questionIndex)
+		{
+			this.answer = answer;
+			this.questionIndex = questionIndex;
 		}
 	}
 

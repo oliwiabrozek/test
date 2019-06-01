@@ -8,6 +8,8 @@ namespace TestGenerator
 {
 	static class Program
 	{
+		//TestGenerator
+
 		/// <summary>
 		/// The main entry point for the application.
 		/// </summary>
@@ -16,7 +18,11 @@ namespace TestGenerator
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Form1());
+
+			Model model = new Model();
+			Form1 form = new Form1();
+			Presenter p = new Presenter(model, form);
+			Application.Run(form);
 		}
 	}
 }

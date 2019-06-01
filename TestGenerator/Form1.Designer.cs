@@ -43,6 +43,9 @@
 			this.addQuesionButton = new System.Windows.Forms.Button();
 			this.questionsTabControl = new System.Windows.Forms.TabControl();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
+			this.questionContentLabel = new System.Windows.Forms.Label();
+			this.pointsListBox = new System.Windows.Forms.ListBox();
+			this.questionsListBox = new System.Windows.Forms.ListBox();
 			this.testNameButton = new System.Windows.Forms.Button();
 			this.addAuthorButton = new System.Windows.Forms.Button();
 			this.testNameTextBox = new System.Windows.Forms.TextBox();
@@ -53,9 +56,7 @@
 			this.deleteAnswerButton = new System.Windows.Forms.Button();
 			this.changeAnswerButton = new System.Windows.Forms.Button();
 			this.changeQuestionButton = new System.Windows.Forms.Button();
-			this.questionsListBox = new System.Windows.Forms.ListBox();
-			this.pointsListBox = new System.Windows.Forms.ListBox();
-			this.questionContentLabel = new System.Windows.Forms.Label();
+			this.currentQuestionLabel = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.scoreNumericUpDown)).BeginInit();
 			this.questionGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.answerPointsNumericUpDown)).BeginInit();
@@ -82,6 +83,7 @@
 			// 
 			// questionGroupBox
 			// 
+			this.questionGroupBox.Controls.Add(this.currentQuestionLabel);
 			this.questionGroupBox.Controls.Add(this.answerPointsLabel);
 			this.questionGroupBox.Controls.Add(this.setAnswerPointsButton);
 			this.questionGroupBox.Controls.Add(this.answerPointsNumericUpDown);
@@ -138,9 +140,9 @@
 			// answersCheckedListBox
 			// 
 			this.answersCheckedListBox.FormattingEnabled = true;
-			this.answersCheckedListBox.Location = new System.Drawing.Point(0, 45);
+			this.answersCheckedListBox.Location = new System.Drawing.Point(0, 75);
 			this.answersCheckedListBox.Name = "answersCheckedListBox";
-			this.answersCheckedListBox.Size = new System.Drawing.Size(257, 244);
+			this.answersCheckedListBox.Size = new System.Drawing.Size(257, 214);
 			this.answersCheckedListBox.TabIndex = 0;
 			// 
 			// scoreAddButton
@@ -188,6 +190,7 @@
 			this.addQuesionButton.TabIndex = 23;
 			this.addQuesionButton.Text = "Dodaj pytanie";
 			this.addQuesionButton.UseVisualStyleBackColor = true;
+			this.addQuesionButton.Click += new System.EventHandler(this.addQuesionButton_Click);
 			// 
 			// questionsTabControl
 			// 
@@ -212,6 +215,31 @@
 			this.tabPage1.Text = "Pytanie 1";
 			this.tabPage1.UseVisualStyleBackColor = true;
 			// 
+			// questionContentLabel
+			// 
+			this.questionContentLabel.AutoSize = true;
+			this.questionContentLabel.Location = new System.Drawing.Point(12, 23);
+			this.questionContentLabel.Name = "questionContentLabel";
+			this.questionContentLabel.Size = new System.Drawing.Size(67, 13);
+			this.questionContentLabel.TabIndex = 2;
+			this.questionContentLabel.Text = "treść pytania";
+			// 
+			// pointsListBox
+			// 
+			this.pointsListBox.FormattingEnabled = true;
+			this.pointsListBox.Location = new System.Drawing.Point(135, 52);
+			this.pointsListBox.Name = "pointsListBox";
+			this.pointsListBox.Size = new System.Drawing.Size(126, 251);
+			this.pointsListBox.TabIndex = 1;
+			// 
+			// questionsListBox
+			// 
+			this.questionsListBox.FormattingEnabled = true;
+			this.questionsListBox.Location = new System.Drawing.Point(6, 52);
+			this.questionsListBox.Name = "questionsListBox";
+			this.questionsListBox.Size = new System.Drawing.Size(123, 251);
+			this.questionsListBox.TabIndex = 0;
+			// 
 			// testNameButton
 			// 
 			this.testNameButton.Location = new System.Drawing.Point(239, 62);
@@ -220,6 +248,7 @@
 			this.testNameButton.TabIndex = 21;
 			this.testNameButton.Text = "Zmień";
 			this.testNameButton.UseVisualStyleBackColor = true;
+			this.testNameButton.Click += new System.EventHandler(this.testNameButton_Click);
 			// 
 			// addAuthorButton
 			// 
@@ -229,6 +258,7 @@
 			this.addAuthorButton.TabIndex = 20;
 			this.addAuthorButton.Text = "Dodaj";
 			this.addAuthorButton.UseVisualStyleBackColor = true;
+			this.addAuthorButton.Click += new System.EventHandler(this.addAuthorButton_Click);
 			// 
 			// testNameTextBox
 			// 
@@ -243,7 +273,6 @@
 			this.authorTextBox.Name = "authorTextBox";
 			this.authorTextBox.Size = new System.Drawing.Size(100, 20);
 			this.authorTextBox.TabIndex = 18;
-			this.authorTextBox.TextChanged += new System.EventHandler(this.authorTextBox_TextChanged);
 			// 
 			// testNameLabel
 			// 
@@ -271,6 +300,7 @@
 			this.addAsnwerButton.TabIndex = 30;
 			this.addAsnwerButton.Text = "Dodaj odpowiedź";
 			this.addAsnwerButton.UseVisualStyleBackColor = true;
+			this.addAsnwerButton.Click += new System.EventHandler(this.addAsnwerButton_Click);
 			// 
 			// deleteAnswerButton
 			// 
@@ -299,30 +329,14 @@
 			this.changeQuestionButton.Text = "Zmień pytanie";
 			this.changeQuestionButton.UseVisualStyleBackColor = true;
 			// 
-			// questionsListBox
+			// currentQuestionLabel
 			// 
-			this.questionsListBox.FormattingEnabled = true;
-			this.questionsListBox.Location = new System.Drawing.Point(6, 52);
-			this.questionsListBox.Name = "questionsListBox";
-			this.questionsListBox.Size = new System.Drawing.Size(123, 251);
-			this.questionsListBox.TabIndex = 0;
-			// 
-			// pointsListBox
-			// 
-			this.pointsListBox.FormattingEnabled = true;
-			this.pointsListBox.Location = new System.Drawing.Point(135, 52);
-			this.pointsListBox.Name = "pointsListBox";
-			this.pointsListBox.Size = new System.Drawing.Size(126, 251);
-			this.pointsListBox.TabIndex = 1;
-			// 
-			// questionContentLabel
-			// 
-			this.questionContentLabel.AutoSize = true;
-			this.questionContentLabel.Location = new System.Drawing.Point(12, 23);
-			this.questionContentLabel.Name = "questionContentLabel";
-			this.questionContentLabel.Size = new System.Drawing.Size(67, 13);
-			this.questionContentLabel.TabIndex = 2;
-			this.questionContentLabel.Text = "treść pytania";
+			this.currentQuestionLabel.AutoSize = true;
+			this.currentQuestionLabel.Location = new System.Drawing.Point(6, 45);
+			this.currentQuestionLabel.Name = "currentQuestionLabel";
+			this.currentQuestionLabel.Size = new System.Drawing.Size(165, 13);
+			this.currentQuestionLabel.TabIndex = 6;
+			this.currentQuestionLabel.Text = "Dodajesz odpowiedzi do pytania: ";
 			// 
 			// Form1
 			// 
@@ -391,6 +405,7 @@
 		private System.Windows.Forms.Button deleteAnswerButton;
 		private System.Windows.Forms.Button changeAnswerButton;
 		private System.Windows.Forms.Button changeQuestionButton;
+		private System.Windows.Forms.Label currentQuestionLabel;
 	}
 }
 
