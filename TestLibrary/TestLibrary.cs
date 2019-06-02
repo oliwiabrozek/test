@@ -77,7 +77,7 @@ namespace TestLibrary
         }
         public Question(String question, List<Answer> answerList, uint index)
         {
-            //this.answersList = new List<Answer> { };
+            this.answersList = new List<Answer> { };
             this.answersList = answerList;
             this.question = question;
             this.index = index;
