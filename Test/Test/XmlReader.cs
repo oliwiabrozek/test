@@ -16,6 +16,7 @@ namespace Test
         public XDocument XmlDoc2;
         public XmlReader(String Path)
         {
+            
             XmlDoc = new XmlDocument();
             if (File.Exists(Path))
             {
@@ -27,6 +28,7 @@ namespace Test
                 MessageBox.Show("Something is wrong, file XMLTest.xml does not exist. ");
                 System.Environment.Exit(0);
             }
+            //GetAnswersForCurrentQuestion(1);
         }
 
         public int GetNumberOfItems(string name) //zwraca liczbę interesujących mnie znaczników w dokumencie XML
@@ -45,28 +47,39 @@ namespace Test
             return Node.Attributes.GetNamedItem(AttributeName).InnerText;
         }
 
-        public List<String> GetAnswersForSelectedQuestion(uint index)
+        public List<string> GetAnswersForCurrentQuestion(uint index)
         {
-            List<String> ListOfAnswers = new List<String>();
-
-            return ListOfAnswers;
+            List<string> Answers = new List<string>();
+            XmlNodeList answers = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']");
+            foreach (XmlNode node in answers)
+            {
+                if (node.HasChildNodes)
+                {
+                    foreach (XmlNode item in node.ChildNodes)
+                        Answers.Add(item.InnerText);
+                }
+            }
+            return Answers;
         }
-        
 
-        public List<Question> LoadQuestions() //pobiera wszystkie pytania z pliku XML do listy
+        public List<double> GetPointForCurrentAnswers(uint index)
         {
-            int n = GetNumberOfItems("question");
-            if (n <= 0)
+            List<double> ListOfPoints = new List<double>();
+            XmlNodeList points = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']/answer[@points]");
+            int i;
+            if (index == 1)
+                i = 0;
+            else
+                i = (int)(index * 4) - 4;
+            foreach (XmlNode node in points)
             {
-                MessageBox.Show("There are no questions in the XML file.");
-                System.Environment.Exit(0);
+                foreach (XmlNode item in node)
+                {
+                    ListOfPoints.Add(double.Parse(GetAttributeValue(i, "answer", "points")));
+                    i++;
+                }
             }
-            List<Question> question = new List<Question>();
-            for (int k = 0; k < n; k++)
-            {
-                question.Add(new Question(GetAttributeValue(k, "question", "content"), uint.Parse(GetAttributeValue(k, "question", "index"))));
-            }
-            return question;
+            return ListOfPoints;
         }
     }
 }

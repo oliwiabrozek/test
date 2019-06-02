@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-  <test name="Nazwa testu" percent_to_pass="70">
+ <test name="Nazwa testu" percent_to_pass="70">
   <authors>
     <author>Oliwia</author>
     <author>Kamil</author>
@@ -7,16 +7,16 @@
 
   <questions>
     <question content="Ile lat ma Kamil?" time="10" index ="1">
-      <answer points="-5">1000</answer>
-      <answer points="0">21</answer>
-      <answer points="5">22</answer>
-      <answer points="-5">-100</answer>
+      <answer points="-5">p1 odp1</answer>
+      <answer points="0">p1 odp2</answer>
+      <answer points="5">p1 odp3</answer>
+      <answer points="-5">p1 odp4</answer>
     </question>
     <question content="Pytanie 2" time="40" index ="2">
-      <answer points="1">Odpowiedź 1</answer>
-      <answer points="0">Odpowiedź 2</answer>
-      <answer points="0">Odpowiedź 3</answer>
-      <answer points="0">Odpowiedź 4</answer>
+      <answer points="1">p2 odp1</answer>
+      <answer points="0">p2 odp2</answer>
+      <answer points="0">p2 odp3</answer>
+      <answer points="0">p2 odp4</answer>
     </question>
   </questions>
 </test>

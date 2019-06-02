@@ -14,7 +14,7 @@ namespace Test
     public partial class TestRunDesign : UserControl, InterfaceDesign
     {
         public event Action LoadTestName;
-        public event Action<int> LoadQuestions;
+        public event Action<int> LoadQuestions, LoadAnswers;
         int index = 0;
         public TestRunDesign()
         {
@@ -40,6 +40,39 @@ namespace Test
             }
         }
 
+        public String CheckboxAValue
+        {
+            set
+            {
+                if(value != null)
+                    checkBoxA.Text = value;
+            }
+        }
+        public String CheckboxBValue
+        {
+            set
+            {
+                if (value != null)
+                    checkBoxB.Text = value;
+            }
+        }
+        public String CheckboxCValue
+        {
+            set
+            {
+                if (value != null)
+                    checkBoxC.Text = value;
+            }
+        }
+        public String CheckboxDValue
+        {
+            set
+            {
+                if (value != null)
+                    checkBoxD.Text = value;
+            }
+        }
+
         private void TestRunDesign_Load(object sender, EventArgs e)
         {
             if (LoadTestName != null)
@@ -47,9 +80,10 @@ namespace Test
             if (LoadQuestions != null) //pierwsze pytanie
             {
                 LoadQuestions(index);
-                index++;
             }
-
+            if (LoadAnswers != null)
+                LoadAnswers(index);
+            index++;
         }
 
         public void checkBox_CheckedChanged(object sender, EventArgs e)
@@ -89,8 +123,12 @@ namespace Test
             if (LoadQuestions != null)
             {
                 LoadQuestions(index);
-                index++;
             }
+            if(LoadAnswers != null)
+            {
+                LoadAnswers(index);
+            }
+            index++;
         }
     }
 }

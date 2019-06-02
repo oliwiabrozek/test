@@ -11,7 +11,11 @@ namespace Test.Viev
        //String Path { set; } //odkomentować jeszcze Form1.Designer.cs
         String TestName { set; }
         String QuestionValue { set; }
+        String CheckboxAValue { set; }
+        String CheckboxBValue { set; }
+        String CheckboxCValue { set; }
+        String CheckboxDValue { set; }
         event Action LoadTestName;
-        event Action<int> LoadQuestions;
+        event Action<int> LoadQuestions, LoadAnswers;
     }
 }

@@ -67,7 +67,7 @@ namespace TestLibrary
     public class Question
     {
         private String question;
-        public List<Answer> answersList;
+        private List<Answer> answersList;
         public uint index;
         public Question () {}
         public Question(String question)
@@ -75,16 +75,29 @@ namespace TestLibrary
 			this.answersList = new List<Answer> { };
             this.question = question;
         }
-        public Question(String question,/* List<Answer> answerList,*/ uint index)
+        public Question(String question, List<Answer> answerList, uint index)
         {
-			this.answersList = new List<Answer> { };
-			this.question = question;
+            //this.answersList = new List<Answer> { };
+            this.answersList = answerList;
+            this.question = question;
             this.index = index;
         }
+
+       /* public Question(String question, List<Answer> answerList, uint index)
+        {
+            this.answersList = answerList;
+            this.question = question;
+            this.index = index;
+        }*/
 
         public String GetQuestion()
         {
             return question;
+        }
+
+        public Answer GetAnswerListElement(int index)
+        {
+            return answersList[index];
         }
 
 
@@ -95,8 +108,8 @@ namespace TestLibrary
 
 	public class Answer
 	{
-        public string answer;
-        public double points; // dla tego konkretnego pytania
+        private string answer;
+        private double points; // dla tego konkretnego pytania
 		private uint index;
 		private uint questionIndex; //indeks pytania dla tej odpowiedzi
 
@@ -106,6 +119,21 @@ namespace TestLibrary
 			this.answer = answer;
 			this.questionIndex = questionIndex;
 		}
+        public Answer(string answer, double points)
+        {
+            this.answer = answer;
+            this.points = points;
+        }
+
+        public string GetAnswer()
+        {
+            return answer;
+        }
+
+        public double GetPoints()
+        {
+            return points;
+        }
 	}
 
 	public class Score

@@ -15,12 +15,15 @@ namespace Test.Presenter
         InterfaceTest vievTest;
         InterfaceDesign vievDesign;
         TestLibrary.Test testLibrary;
+        Question questionLibrary;
+        List<Answer> answerLibrary;
         public PresenterDesign(ModelTest model, InterfaceTest viev)
         {
             this.model = model;
             this.vievTest = viev;
             this.vievTest.Design.LoadTestName += VievLoadTestName;
-            this.vievTest.Design.LoadQuestions += VievLoadQuestions;
+            this.vievTest.Design.LoadQuestions += VievLoadQuestion;
+            this.vievTest.Design.LoadAnswers += VievLoadAnswers; 
             
         }
 
@@ -29,12 +32,20 @@ namespace Test.Presenter
             testLibrary = model.CreateTest();
             vievTest.Design.TestName = testLibrary.GetTestName(); 
         }
-        public void VievLoadQuestions(int index)
+        private void VievLoadQuestion(int index)
         {
             if (model.AmountOfQuestions() > index)
                 vievTest.Design.QuestionValue = testLibrary.GetQuestsionListElement(index).GetQuestion();
             else
                 MessageBox.Show("Tu będzie zdarzenie wyświetlające podsumowanie testu.");
+        }
+
+        private void VievLoadAnswers(int index)
+        {
+            vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer();
+            vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer();
+            vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer();
+            vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer();
         }
     }
 }
