@@ -31,8 +31,8 @@ namespace TestLibrary
 
 		public void addAnswer(int questionIndex, Answer answer)
 		{
-			//questionsList[questionIndex].
-		}
+			questionsList[questionIndex].answersList.Add(a);
+        }
 
         public String GetTestName()
         {
