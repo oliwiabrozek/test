@@ -73,7 +73,7 @@ namespace TestGenerator
 					
 			lb.Dock = DockStyle.Fill;
 			lb.Parent = questionsTabControl.TabPages[index - 1];
-			lb.Items.Add(Question.GetterQuestion);
+			lb.Items.Add(Question.GetQuestion);
 			//MessageBox.Show(generatedTest.ShowQuestions());
 		}
 
