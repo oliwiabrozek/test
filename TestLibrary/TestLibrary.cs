@@ -109,7 +109,12 @@ namespace TestLibrary
             this.index = index;
         }
 
-        public String GetQuestion()
+		public Answer GetAnswerListElement(int index)
+		{
+			return answersList[index];
+		}
+
+		public String GetQuestion()
         {
             return question;
         }
