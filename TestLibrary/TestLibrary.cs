@@ -29,12 +29,35 @@ namespace TestLibrary
 			questionsList.Add(question);
 		}
 
-		public void addAnswer(int questionIndex, Answer answer)
+		public string TestName
 		{
-			//questionsList[questionIndex].
+			get { return this.testName; }
+			set { testName = value; }
 		}
 
-        public String GetTestName()
+		public double PercentToPass
+		{
+			get { return this.percentToPass; }
+			set { percentToPass = value; }
+		}
+
+
+		public bool checkIfQuesInList(Question q)
+		{
+			if (questionsList.Contains(q))
+			{
+				return true;
+			}
+			else
+				return false;
+		}
+
+		public void AddAnswers(int i, Answer a)
+		{
+			questionsList[i].answersList.Add(a);
+		}
+
+		public String GetTestName()
         {
             return testName;
         }
@@ -87,11 +110,16 @@ namespace TestLibrary
             return question;
         }
 
+		public string GetterQuestion
+		{
+			get { return this.question; }
+		}
 
-		
-		
+
+
+
 		// czas na odpowiedź
-    }
+	}
 
 	public class Answer
 	{
@@ -105,6 +133,11 @@ namespace TestLibrary
 		{
 			this.answer = answer;
 			this.questionIndex = questionIndex;
+		}
+
+		public string GetAnswer
+		{
+			get { return this.answer; }
 		}
 	}
 
