@@ -53,7 +53,7 @@ namespace Test
         }
         
 
-        public List<Question> LoadQuestions()
+        public List<Question> LoadQuestions() //pobiera wszystkie pytania z pliku XML do listy
         {
             int n = GetNumberOfItems("question");
             if (n <= 0)
@@ -65,12 +65,6 @@ namespace Test
             for (int k = 0; k < n; k++)
             {
                 question.Add(new Question(GetAttributeValue(k, "question", "content"), uint.Parse(GetAttributeValue(k, "question", "index"))));
-            }
-            GetAnswersForSelectedQuestion(1);
-            Console.WriteLine(question.Count);
-            foreach (Question i in question)
-            {
-                Console.WriteLine("Pytanie: " + i.question + i.index);
             }
             return question;
         }

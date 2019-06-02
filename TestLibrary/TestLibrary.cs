@@ -9,9 +9,9 @@ namespace TestLibrary
 	public class Test
 	{
 
-		public List<Question> questionsList;
-        public double percentToPass;
-		public String testName;
+		private List<Question> questionsList;
+        private double percentToPass;
+		private String testName;
         public Test()
 		{
 			questionsList = new List<Question> { };
@@ -33,6 +33,16 @@ namespace TestLibrary
 		{
 			//questionsList[questionIndex].
 		}
+
+        public String GetTestName()
+        {
+            return testName;
+        }
+
+        public Question GetQuestsionListElement(int index)
+        {
+            return questionsList[index];
+        }
 
 
 	}
@@ -56,7 +66,7 @@ namespace TestLibrary
 
     public class Question
     {
-        public String question;
+        private String question;
         public List<Answer> answersList;
         public uint index;
         public Question () {}
@@ -71,6 +81,12 @@ namespace TestLibrary
 			this.question = question;
             this.index = index;
         }
+
+        public String GetQuestion()
+        {
+            return question;
+        }
+
 
 		
 		

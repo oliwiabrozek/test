@@ -14,7 +14,7 @@ namespace Test.Presenter
         ModelTest model;
         InterfaceTest vievTest;
         InterfaceDesign vievDesign;
-        TestLibrary.Test tmp;
+        TestLibrary.Test testLibrary;
         public PresenterDesign(ModelTest model, InterfaceTest viev)
         {
             this.model = model;
@@ -26,13 +26,13 @@ namespace Test.Presenter
 
         private void VievLoadTestName()
         {
-            tmp = model.CreateTest();
-            vievTest.Design.TestName = tmp.testName; 
+            testLibrary = model.CreateTest();
+            vievTest.Design.TestName = testLibrary.GetTestName(); 
         }
         public void VievLoadQuestions(int index)
         {
             if (model.AmountOfQuestions() > index)
-                vievTest.Design.QuestionValue = tmp.questionsList[index].question;
+                vievTest.Design.QuestionValue = testLibrary.GetQuestsionListElement(index).GetQuestion();
             else
                 MessageBox.Show("Tu będzie zdarzenie wyświetlające podsumowanie testu.");
         }
