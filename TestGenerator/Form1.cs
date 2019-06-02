@@ -73,7 +73,7 @@ namespace TestGenerator
 					
 			lb.Dock = DockStyle.Fill;
 			lb.Parent = questionsTabControl.TabPages[index - 1];
-			lb.Items.Add(Question.GetterQuestion);
+			lb.Items.Add("Pytanie: "+Question.GetterQuestion);
 			//MessageBox.Show(generatedTest.ShowQuestions());
 		}
 
@@ -89,7 +89,7 @@ namespace TestGenerator
 				{
 					if(c is ListBox)
 					{
-						c.Items.Add(Answer.GetAnswer);
+						c.Items.Add((c.Items.Count).ToString()+". "+Answer.GetAnswer);
 					}
 				}
 
@@ -109,6 +109,25 @@ namespace TestGenerator
 		private void changeAnswerButton_Click(object sender, EventArgs e)
 		{
 
+		}
+
+		private void setAnswerPointsButton_Click(object sender, EventArgs e)
+		{
+			foreach (ListBox c in questionsTabControl.SelectedTab.Controls)
+			{
+				if (c is ListBox)
+				{
+					if (c.SelectedIndex > 0)
+					{
+						//public void SetPoints(int questionIndex, int answerIndex, double points);
+						generatedTest.SetPoints(questionsTabControl.SelectedIndex, c.SelectedIndex, (double)answerPointsNumericUpDown.Value);
+						c.Items[c.SelectedIndex] += "\t(Punkty: " + answerPointsNumericUpDown.Value.ToString() + ")";
+						//c.Update();
+					}
+					else
+						MessageBox.Show("Zaznacz odpowiedź!!!");
+				}
+			}
 		}
 	}
 }

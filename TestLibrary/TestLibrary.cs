@@ -29,12 +29,35 @@ namespace TestLibrary
 			questionsList.Add(question);
 		}
 
-		public void addAnswer(int questionIndex, Answer answer)
+		public string TestName
 		{
-			questionsList[questionIndex].answersList.Add(a);
-        }
+			get { return this.testName; }
+			set { testName = value; }
+		}
 
-        public String GetTestName()
+		public double PercentToPass
+		{
+			get { return this.percentToPass; }
+			set { percentToPass = value; }
+		}
+
+
+		public bool checkIfQuesInList(Question q)
+		{
+			if (questionsList.Contains(q))
+			{
+				return true;
+			}
+			else
+				return false;
+		}
+
+		public void AddAnswers(int i, Answer a)
+		{
+			questionsList[i].AnswersList.Add(a);
+		}
+
+		public String GetTestName()
         {
             return testName;
         }
@@ -44,12 +67,16 @@ namespace TestLibrary
             return questionsList[index];
         }
 
+		public void SetPoints(int questionIndex, int answerIndex, double points)
+		{
+			questionsList[questionIndex].AnswersList[answerIndex-1].Points = points;
+		}
 
 	}
 
 	public class Author
 	{
-		public string name;
+		private string name;
 
 		public Author(string name)
 		{
@@ -68,72 +95,61 @@ namespace TestLibrary
     {
         private String question;
         private List<Answer> answersList;
-        public uint index;
+        private uint index;
         public Question () {}
         public Question(String question)
         {
 			this.answersList = new List<Answer> { };
             this.question = question;
         }
-        public Question(String question, List<Answer> answerList, uint index)
+        public Question(String question,/* List<Answer> answerList,*/ uint index)
         {
-            this.answersList = new List<Answer> { };
-            this.answersList = answerList;
-            this.question = question;
+			this.answersList = new List<Answer> { };
+			this.question = question;
             this.index = index;
         }
-
-       /* public Question(String question, List<Answer> answerList, uint index)
-        {
-            this.answersList = answerList;
-            this.question = question;
-            this.index = index;
-        }*/
 
         public String GetQuestion()
         {
             return question;
         }
 
-        public Answer GetAnswerListElement(int index)
-        {
-            return answersList[index];
-        }
+		public string GetterQuestion
+		{
+			get { return this.question; }
+		}
+
+		public List<Answer> AnswersList
+		{
+			get { return this.answersList; }
+		}
 
 
-		
-		
-		// czas na odpowiedź
-    }
+	}
 
 	public class Answer
 	{
         private string answer;
         private double points; // dla tego konkretnego pytania
-		private uint index;
-		private uint questionIndex; //indeks pytania dla tej odpowiedzi
 
 		//mój konstruktor - Oliwia
 		public Answer(string answer, uint questionIndex)
 		{
 			this.answer = answer;
-			this.questionIndex = questionIndex;
+			
 		}
-        public Answer(string answer, double points)
-        {
-            this.answer = answer;
-            this.points = points;
-        }
 
-        public string GetAnswer()
-        {
-            return answer;
-        }
+		public string GetAnswer
+		{
+			get { return this.answer; }
+			set { this.answer = value; }
+		}
 
-        public double GetPoints()
-        {
-            return points;
-        }
+		public double Points
+		{
+			get { return this.points; }
+			set { this.points = value; }
+		}
 	}
 
 	public class Score

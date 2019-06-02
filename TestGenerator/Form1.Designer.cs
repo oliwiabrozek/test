@@ -86,6 +86,7 @@
 			// 
 			// answerPointsNumericUpDown
 			// 
+			this.answerPointsNumericUpDown.DecimalPlaces = 2;
 			this.answerPointsNumericUpDown.Location = new System.Drawing.Point(12, 205);
 			this.answerPointsNumericUpDown.Name = "answerPointsNumericUpDown";
 			this.answerPointsNumericUpDown.Size = new System.Drawing.Size(120, 20);
@@ -261,6 +262,7 @@
 			this.setAnswerPointsButton.TabIndex = 4;
 			this.setAnswerPointsButton.Text = "Ustaw";
 			this.setAnswerPointsButton.UseVisualStyleBackColor = true;
+			this.setAnswerPointsButton.Click += new System.EventHandler(this.setAnswerPointsButton_Click);
 			// 
 			// answerTextBox
 			// 
