@@ -29,12 +29,12 @@ namespace TestLibrary
 			questionsList.Add(question);
 		}
 
-		public void addAnswer(int questionIndex, Answer answer)
+		public void AddAnswers(int i, Answer a)
 		{
-			//questionsList[questionIndex].
+			questionsList[i].answersList.Add(a);
 		}
 
-        public String GetTestName()
+		public String GetTestName()
         {
             return testName;
         }
@@ -43,6 +43,20 @@ namespace TestLibrary
         {
             return questionsList[index];
         }
+
+
+		public string TestName
+		{
+			get { return this.testName; }
+			set { testName = value; }
+		}
+
+		public double PercentToPass
+		{
+			get { return this.percentToPass; }
+			set { percentToPass = value; }
+		}
+
 
 
 	}
@@ -87,11 +101,16 @@ namespace TestLibrary
             return question;
         }
 
+		public string GetterQuestion
+		{
+			get { return this.question; }
+		}
 
-		
-		
+
+
+
 		// czas na odpowiedź
-    }
+	}
 
 	public class Answer
 	{
@@ -106,10 +125,18 @@ namespace TestLibrary
 			this.answer = answer;
 			this.questionIndex = questionIndex;
 		}
+
+		public string GetAnswer
+		{
+			get { return this.answer; }
+		}
+
 	}
 
 	public class Score
 	{
 		// liczy wynik dla całego testu? 
 	}
+
+	
 }
