@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Test.Model;
 using Test.Viev;
 using TestLibrary;
+using System.Windows.Forms;
 namespace Test.Presenter
 {
     class PresenterDesign
@@ -25,13 +26,15 @@ namespace Test.Presenter
 
         private void VievLoadTestName()
         {
-            tmp = model.TestObiektów();
+            tmp = model.CreateTest();
             vievTest.Design.TestName = tmp.testName; 
         }
         public void VievLoadQuestions(int index)
         {
-            Console.WriteLine("Pierwszy obieg");
-            vievTest.Design.QuestionValue = tmp.questionsList[index].question;
+            if (model.AmountOfQuestions() > index)
+                vievTest.Design.QuestionValue = tmp.questionsList[index].question;
+            else
+                MessageBox.Show("Tu będzie zdarzenie wyświetlające podsumowanie testu.");
         }
     }
 }

@@ -10,22 +10,27 @@ namespace Test.Model
 {
     class ModelTest
     {
-        XmlReader XmlReader = new XmlReader(ModelLoadPath());
-		//T test1 = new T();
-		
-        public  static String ModelLoadPath()
+        XmlReader xml = new XmlReader(ModelLoadPath());
+        TestLibrary.Test libraryT = new TestLibrary.Test();
+        Question libraryQ = new Question();
+
+        public static String ModelLoadPath()
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
             return path;
-			Answer a = new Answer();
-			//a.pytaj();
-		}
-
-        public String LoadTestName()
-        {
-            
-            return XmlReader.GetAttributeValue(0, "test", "name");
         }
+
+        public TestLibrary.Test CreateTest()
+        {
+            TestLibrary.Test tmp = new TestLibrary.Test(xml.GetAttributeValue(0, "test", "name"), 12, xml.LoadQuestions());
+            return tmp;
+        }
+
+        public int AmountOfQuestions()
+        {
+            return xml.GetNumberOfItems("question");
+        }
+
     }
 
 }
