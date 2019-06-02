@@ -42,10 +42,10 @@ namespace Test.Presenter
 
         private void VievLoadAnswers(int index)
         {
-            vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer();
-            vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer();
-            vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer();
-            vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer();
+            vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
+            vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
+            vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
+            vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer;
         }
     }
 }

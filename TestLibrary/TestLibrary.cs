@@ -102,9 +102,10 @@ namespace TestLibrary
 			this.answersList = new List<Answer> { };
             this.question = question;
         }
-        public Question(String question,/* List<Answer> answerList,*/ uint index)
+        public Question(String question, List<Answer> answerList, uint index)
         {
 			this.answersList = new List<Answer> { };
+            this.answersList = answerList;
 			this.question = question;
             this.index = index;
         }
@@ -124,8 +125,13 @@ namespace TestLibrary
 			get { return this.answersList; }
 		}
 
+        public Answer GetAnswerListElement(int index)
+        {
+            return answersList[index];
+        }
 
-	}
+
+    }
 
 	public class Answer
 	{
@@ -139,13 +145,25 @@ namespace TestLibrary
 			
 		}
 
-		public string GetAnswer
+        public Answer(string answer, double points)
+        {
+            this.answer = answer;
+            this.points = points;
+        }
+
+
+        public string GetAnswer
 		{
 			get { return this.answer; }
 			set { this.answer = value; }
 		}
 
-		public double Points
+        public string GetAnswerr()
+        {
+            return answer;
+        }
+
+        public double Points
 		{
 			get { return this.points; }
 			set { this.points = value; }
