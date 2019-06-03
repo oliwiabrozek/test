@@ -61,8 +61,6 @@ namespace Test.Model
                 ListOfAnswers.Add(new Answer(element, points[x]));
                 x++;
             }
-            Console.WriteLine("Utworzylem obiekty");
-
             return ListOfAnswers;
         }
 
@@ -84,10 +82,10 @@ namespace Test.Model
 
         public void CountMaxScore(List<double> points)
         {
-            foreach (double xd in points)
-                Console.WriteLine("ASD: " + xd);
+            /*foreach (double xd in points)
+                Console.WriteLine("ASD: " + xd);*/
             max = max + points.Max();
-            Console.WriteLine("MAX: " + max);
+            //Console.WriteLine("MAX: " + max);
         }
 
         public double GetMaxScore()
@@ -96,7 +94,7 @@ namespace Test.Model
             return max;
         }
 
-        public double AmountOfQuestions(List<Question> listOfQuestions)
+        public int AmountOfQuestions(List<Answer> listOfQuestions)
         {
             return listOfQuestions.Count();
         }

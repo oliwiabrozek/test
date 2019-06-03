@@ -46,11 +46,31 @@ namespace Test.Presenter
 
         private void VievLoadAnswers(int index)
         {   //te elementy powinny sie pobierać z modelu
-            Console.WriteLine("ILOŚ PYTAŃ: " + model.AmountOfQuestions(testLibrary.GetQUestionList()));
-            vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
-            vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
-            vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
-            vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer;
+            Console.WriteLine("ILOŚ PYTAŃ: " + model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList()));
+            int amountOfAnswers = model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList());
+            if(amountOfAnswers == 1)
+            {
+                vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
+            }
+            else if (amountOfAnswers == 2)
+            {
+                vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
+                vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
+            }
+            else if(amountOfAnswers == 3)
+            {
+                vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
+                vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
+                vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
+            }
+            else
+            {
+                vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
+                vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
+                vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
+                vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer;
+            }
+           
         }
 
         private void VievAddPoints(int indexQue, int indexAns)

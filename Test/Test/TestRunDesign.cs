@@ -129,6 +129,10 @@ namespace Test
 
         private void buttonNextQuestion_Click(object sender, EventArgs e)
         {
+            checkBoxA.Checked = false; CheckboxAValue = "";
+            checkBoxB.Checked = false; CheckboxBValue = "";
+            checkBoxC.Checked = false; CheckboxCValue = "";
+            checkBoxD.Checked = false; CheckboxDValue = "";
             if (checkBoxA.Checked)
             {
                 if (AddPoints != null)
@@ -171,10 +175,7 @@ namespace Test
                     Summary();
             }
 
-            checkBoxA.Checked = false;
-            checkBoxB.Checked = false;
-            checkBoxC.Checked = false;
-            checkBoxD.Checked = false;
+
         }
     }
 }

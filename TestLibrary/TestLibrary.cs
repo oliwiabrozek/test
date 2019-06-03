@@ -12,7 +12,6 @@ namespace TestLibrary
 		private List<Question> questionsList;
         private double percentToPass;
 		private String testName;
-        private double maxAmountOfPoints;
         public Test()
 		{
 			questionsList = new List<Question> { };
@@ -134,6 +133,11 @@ namespace TestLibrary
         public Answer GetAnswerListElement(int index)
         {
             return answersList[index];
+        }
+
+        public List<Answer> GetAnswerList()
+        {
+            return answersList;
         }
 
 
