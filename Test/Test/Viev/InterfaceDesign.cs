@@ -15,7 +15,9 @@ namespace Test.Viev
         String CheckboxBValue { set; }
         String CheckboxCValue { set; }
         String CheckboxDValue { set; }
-        event Action LoadTestName;
+        int AmountOfQuestions { set; }
+        event Action LoadTestName, Summary;
         event Action<int> LoadQuestions, LoadAnswers;
+        event Action<int, int> AddPoints;
     }
 }

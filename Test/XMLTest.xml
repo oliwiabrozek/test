@@ -14,9 +14,21 @@
     </question>
     <question content="Pytanie 2" time="40" index ="2">
       <answer points="1">p2 odp1</answer>
-      <answer points="0">p2 odp2</answer>
-      <answer points="0">p2 odp3</answer>
-      <answer points="0">p2 odp4</answer>
+      <answer points="2">p2 odp2</answer>
+      <answer points="3">p2 odp3</answer>
+      <answer points="4">p2 odp4</answer>
+    </question>
+    <question content="Pytanie 3" time="40" index ="3">
+      <answer points="0">p3 odp1</answer>
+      <answer points="2">p3 odp2</answer>
+      <answer points="-3">p3 odp3</answer>
+      <answer points="-4">p3 odp4</answer>
+    </question>
+    <question content="Pytanie 4" time="40" index ="4">
+      <answer points="1">p4 odp1</answer>
+      <answer points="0">p4 odp2</answer>
+      <answer points="0">p4 odp3</answer>
+      <answer points="0">p4 odp4</answer>
     </question>
   </questions>
 </test>

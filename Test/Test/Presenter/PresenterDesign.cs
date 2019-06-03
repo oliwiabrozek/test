@@ -7,6 +7,8 @@ using Test.Model;
 using Test.Viev;
 using TestLibrary;
 using System.Windows.Forms;
+
+
 namespace Test.Presenter
 {
     class PresenterDesign
@@ -23,14 +25,16 @@ namespace Test.Presenter
             this.vievTest = viev;
             this.vievTest.Design.LoadTestName += VievLoadTestName;
             this.vievTest.Design.LoadQuestions += VievLoadQuestion;
-            this.vievTest.Design.LoadAnswers += VievLoadAnswers; 
-            
+            this.vievTest.Design.LoadAnswers += VievLoadAnswers;
+            this.vievTest.Design.AddPoints += VievAddPoints;
+            this.vievTest.Design.Summary += VievSummary;
         }
 
         private void VievLoadTestName()
         {
             testLibrary = model.CreateTest();
-            vievTest.Design.TestName = testLibrary.GetTestName(); 
+            vievTest.Design.TestName = testLibrary.GetTestName();
+            vievTest.Design.AmountOfQuestions = model.AmountOfQuestions(); //ilosc pytan do warunku
         }
         private void VievLoadQuestion(int index)
         {
@@ -41,11 +45,35 @@ namespace Test.Presenter
         }
 
         private void VievLoadAnswers(int index)
-        {
+        {   //te elementy powinny sie pobierać z modelu
             vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
             vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
             vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
             vievTest.Design.CheckboxDValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(3).GetAnswer;
+        }
+
+        private void VievAddPoints(int indexQue, int indexAns)
+        {
+           model.AddPoint(testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);
+        }
+
+        private void VievSummary()
+        {
+            double percentToPass = model.PercentToPass();
+            double score = model.Score();
+            double maxScore = model.GetMaxScore();
+            double percentScore;
+            if (score <= 0)
+                 percentScore = 0;
+            else
+                percentScore = (score / maxScore);
+            String result;
+            if (percentScore >= percentToPass)
+                result = "pozytywny";
+            else
+                result = "negatywny";
+
+            MessageBox.Show("Liczba uzyskanych punktów: " + score  + "\nLiczba maksymalna punktów: " + maxScore + "\n" + "Wynik procentowy: " + Math.Round(percentScore, 2) + "\nWymagana ilość procent do zdania: " + percentToPass + "\n\nWynik testu: " + result);
         }
     }
 }

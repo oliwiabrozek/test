@@ -12,8 +12,9 @@ namespace Test.Model
     {
         XmlReader xml = new XmlReader(ModelLoadPath());
         TestLibrary.Test libraryT = new TestLibrary.Test();
+        Score score = new Score();
         Question libraryQ = new Question();
-
+        double max = 0;
         public static String ModelLoadPath()
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
@@ -22,18 +23,13 @@ namespace Test.Model
 
         public TestLibrary.Test CreateTest()
         {
-            TestLibrary.Test tmp = new TestLibrary.Test(xml.GetAttributeValue(0, "test", "name"), 12, CreateQuestion());
+            TestLibrary.Test tmp = new TestLibrary.Test(xml.GetAttributeValue(0, "test", "name"), PercentToPass(), CreateQuestion());
             return tmp;
         }
 
         public int AmountOfQuestions()
         {
             return xml.GetNumberOfItems("question");
-        }
-
-        public void LoadAnswers(uint index)
-        {
-           // CreateAnswers(index);
         }
 
         public List<Question> CreateQuestion() //pobiera wszystkie pytania z pliku XML do listy
@@ -58,6 +54,7 @@ namespace Test.Model
             List<Answer> ListOfAnswers = new List<Answer>();
             List<string> answers = xml.GetAnswersForCurrentQuestion(index);
             List<double> points = xml.GetPointForCurrentAnswers(index);
+            CountMaxScore(points);
             int x = 0;
             foreach (String element in answers)
             {
@@ -67,6 +64,34 @@ namespace Test.Model
             Console.WriteLine("Utworzylem obiekty");
 
             return ListOfAnswers;
+        }
+
+        public void AddPoint(double point)
+        { 
+            score.Points = score.Points + point;
+            Console.WriteLine("SCORE: " + score.Points);
+        }
+
+        public double Score()
+        {
+            return score.Points;
+        }
+
+        public double PercentToPass()
+        {
+            return xml.GetPercentToPass();
+        }
+
+        public void CountMaxScore(List<double> points)
+        {
+            max = max + points.Max();
+            Console.WriteLine("MAX: " + max);
+        }
+
+        public double GetMaxScore()
+        {
+            Console.WriteLine(max);
+            return max;
         }
 
     }

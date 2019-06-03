@@ -81,5 +81,16 @@ namespace Test
             }
             return ListOfPoints;
         }
+
+        public double GetPointForSelectedAnswer(List<double> ListOfPoints, int selectedAnswer)
+        {
+            double pointsMAX = ListOfPoints[selectedAnswer];
+            return pointsMAX;
+        }
+
+        public double GetPercentToPass()
+        {
+            return double.Parse(GetAttributeValue(0, "test", "percent_to_pass"));
+        }
     }
 }

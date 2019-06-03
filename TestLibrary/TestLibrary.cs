@@ -12,6 +12,7 @@ namespace TestLibrary
 		private List<Question> questionsList;
         private double percentToPass;
 		private String testName;
+        private double maxAmountOfPoints;
         public Test()
 		{
 			questionsList = new List<Question> { };
@@ -172,6 +173,12 @@ namespace TestLibrary
 
 	public class Score
 	{
-		// liczy wynik dla całego testu? 
-	}
+        private double points = 0;
+        public double Points
+        {
+            get { return this.points; }
+            set { this.points = value; }
+        }
+        // liczy wynik dla całego testu? 
+    }
 }
