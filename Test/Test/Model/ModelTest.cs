@@ -61,17 +61,20 @@ namespace Test.Model
                 ListOfAnswers.Add(new Answer(element, points[x]));
                 x++;
             }
+            foreach (double xd in points)
+                Console.WriteLine("POINTS: " + xd);
             return ListOfAnswers;
         }
 
         public void AddPoint(double point)
         { 
             score.Points = score.Points + point;
-            Console.WriteLine("SCORE: " + score.Points);
+            Console.WriteLine("SUMA PKT: " + score.Points);
         }
 
         public double Score()
         {
+            Console.WriteLine("ZWRACAM WYNIK");
             return score.Points;
         }
 

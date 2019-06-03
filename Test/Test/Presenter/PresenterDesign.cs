@@ -19,6 +19,7 @@ namespace Test.Presenter
         TestLibrary.Test testLibrary;
         Question questionLibrary;
         List<Answer> answerLibrary;
+        int amountOfAnswers;
         public PresenterDesign(ModelTest model, InterfaceTest viev)
         {
             this.model = model;
@@ -47,7 +48,7 @@ namespace Test.Presenter
         private void VievLoadAnswers(int index)
         {   //te elementy powinny sie pobierać z modelu
             Console.WriteLine("ILOŚ PYTAŃ: " + model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList()));
-            int amountOfAnswers = model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList());
+            amountOfAnswers = model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList());
             if(amountOfAnswers == 1)
             {
                 vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
@@ -75,6 +76,9 @@ namespace Test.Presenter
 
         private void VievAddPoints(int indexQue, int indexAns)
         {
+            Console.WriteLine("INDX " + indexQue + " AMOU: " + amountOfAnswers);
+            //Console.WriteLine("INDEKS: " + (indexQue) + "INDEKS A :" + (indexAns));
+            Console.WriteLine("DODAJE TYLE PKT: " + testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);
            model.AddPoint(testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);
         }
 

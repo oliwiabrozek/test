@@ -66,7 +66,7 @@ namespace Test
         }
 
         public List<double> GetPointForCurrentAnswers(uint index) //tu tego i nie powinno byc, pobier mi wszystkie punkty dla wszystkich pytan zamiast dla konkretnego
-        {
+        {//zrób tak, żw pobiera od indeksu do ilości odpowiedzi
             List<double> ListOfPoints = new List<double>();
             XmlNodeList points = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']/answer[@points]");
             int i = 0;
@@ -80,12 +80,6 @@ namespace Test
             }
             return ListOfPoints;
         }
-
-        /*public double GetPointForSelectedAnswer(List<double> ListOfPoints, int selectedAnswer)
-        {
-            double pointsMAX = ListOfPoints[selectedAnswer];
-            return pointsMAX;
-        }*/
 
         public double GetPercentToPass()
         {

@@ -129,33 +129,18 @@ namespace Test
 
         private void buttonNextQuestion_Click(object sender, EventArgs e)
         {
-            checkBoxA.Checked = false; CheckboxAValue = "";
-            checkBoxB.Checked = false; CheckboxBValue = "";
-            checkBoxC.Checked = false; CheckboxCValue = "";
-            checkBoxD.Checked = false; CheckboxDValue = "";
-
-            if (index < anountOfQ)
-            {
-                if (LoadQuestions != null)
-                {
-                    LoadQuestions(index);
-                }
-                if (LoadAnswers != null)
-                {
-                    LoadAnswers(index);
-                }
-                index++;
-            }
-            else
-            {
-                if(Summary != null)
-                    Summary();
-            }
-
+            CheckboxAValue = "";
+            CheckboxBValue = "";
+            CheckboxCValue = "";
+            CheckboxDValue = "";
             if (checkBoxA.Checked)
             {
+                //Console.WriteLine("Zaznaczono A");
                 if (AddPoints != null)
+                {
                     AddPoints(index, 0);
+                    //Console.WriteLine("DOdaje do A");
+                }
             }
             else if (checkBoxB.Checked)
             {
@@ -176,7 +161,28 @@ namespace Test
             {
                 Console.WriteLine("Nie znaznaczono żadnej odpowiedzi");
             }
+            if (index < anountOfQ)
+            {
+                if (LoadQuestions != null)
+                {
+                    LoadQuestions(index);
+                }
+                if (LoadAnswers != null)
+                {
+                    LoadAnswers(index);
+                }
+                index++;
+            }
+            else
+            {
+                if(Summary != null)
+                    Summary();
+            }
 
+            checkBoxA.Checked = false; 
+            checkBoxB.Checked = false; 
+            checkBoxC.Checked = false; 
+            checkBoxD.Checked = false; 
 
         }
     }
