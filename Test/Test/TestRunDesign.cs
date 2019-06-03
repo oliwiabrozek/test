@@ -133,30 +133,7 @@ namespace Test
             checkBoxB.Checked = false; CheckboxBValue = "";
             checkBoxC.Checked = false; CheckboxCValue = "";
             checkBoxD.Checked = false; CheckboxDValue = "";
-            if (checkBoxA.Checked)
-            {
-                if (AddPoints != null)
-                    AddPoints(index, 0);
-            }
-            else if (checkBoxB.Checked)
-            {
-                if (AddPoints != null)
-                    AddPoints(index, 1);
-            }
-            else if(checkBoxC.Checked)
-            {
-                if (AddPoints != null)
-                    AddPoints(index, 2);
-            }
-            else if (checkBoxD.Checked)
-            {
-                if (AddPoints != null)
-                    AddPoints(index, 3);
-            }
-            else
-            {
-                Console.WriteLine("Nie znaznaczono żadnej odpowiedzi");
-            }
+
             if (index < anountOfQ)
             {
                 if (LoadQuestions != null)
@@ -173,6 +150,31 @@ namespace Test
             {
                 if(Summary != null)
                     Summary();
+            }
+
+            if (checkBoxA.Checked)
+            {
+                if (AddPoints != null)
+                    AddPoints(index, 0);
+            }
+            else if (checkBoxB.Checked)
+            {
+                if (AddPoints != null)
+                    AddPoints(index, 1);
+            }
+            else if (checkBoxC.Checked)
+            {
+                if (AddPoints != null)
+                    AddPoints(index, 2);
+            }
+            else if (checkBoxD.Checked)
+            {
+                if (AddPoints != null)
+                    AddPoints(index, 3);
+            }
+            else
+            {
+                Console.WriteLine("Nie znaznaczono żadnej odpowiedzi");
             }
 
 

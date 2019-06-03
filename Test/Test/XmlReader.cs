@@ -69,11 +69,7 @@ namespace Test
         {
             List<double> ListOfPoints = new List<double>();
             XmlNodeList points = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']/answer[@points]");
-            int i;
-            if (index == 0)
-                i = 0;
-            else
-                i = (int)(index * 4) - 4;
+            int i = 0;
             foreach (XmlNode node in points)
             {
                 foreach (XmlNode item in node)
