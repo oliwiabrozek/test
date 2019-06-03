@@ -44,7 +44,7 @@ namespace Test.Model
 
             for (int k = 0; k < n; k++)
             {
-                question.Add(new Question(xml.GetAttributeValue(k, "question", "content"), CreateAnswers((uint)(k +1)), uint.Parse(xml.GetAttributeValue(k, "question", "index"))));
+                question.Add(new Question(xml.GetAttributeValue(k, "question", "content"), CreateAnswers((uint)(k)), uint.Parse(xml.GetAttributeValue(k, "question", "index"))));
             }
             return question;
         }
@@ -84,6 +84,8 @@ namespace Test.Model
 
         public void CountMaxScore(List<double> points)
         {
+            foreach (double xd in points)
+                Console.WriteLine("ASD: " + xd);
             max = max + points.Max();
             Console.WriteLine("MAX: " + max);
         }
@@ -92,6 +94,11 @@ namespace Test.Model
         {
             Console.WriteLine(max);
             return max;
+        }
+
+        public double AmountOfQuestions(List<Question> listOfQuestions)
+        {
+            return listOfQuestions.Count();
         }
 
     }

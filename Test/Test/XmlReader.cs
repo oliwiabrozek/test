@@ -56,18 +56,21 @@ namespace Test
                 if (node.HasChildNodes)
                 {
                     foreach (XmlNode item in node.ChildNodes)
+                    {
                         Answers.Add(item.InnerText);
+                        Console.WriteLine("DODAJE: " + item.InnerText);
+                    }
                 }
             }
             return Answers;
         }
 
-        public List<double> GetPointForCurrentAnswers(uint index)
+        public List<double> GetPointForCurrentAnswers(uint index) //tu tego i nie powinno byc, pobier mi wszystkie punkty dla wszystkich pytan zamiast dla konkretnego
         {
             List<double> ListOfPoints = new List<double>();
             XmlNodeList points = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']/answer[@points]");
             int i;
-            if (index == 1)
+            if (index == 0)
                 i = 0;
             else
                 i = (int)(index * 4) - 4;
@@ -82,11 +85,11 @@ namespace Test
             return ListOfPoints;
         }
 
-        public double GetPointForSelectedAnswer(List<double> ListOfPoints, int selectedAnswer)
+        /*public double GetPointForSelectedAnswer(List<double> ListOfPoints, int selectedAnswer)
         {
             double pointsMAX = ListOfPoints[selectedAnswer];
             return pointsMAX;
-        }
+        }*/
 
         public double GetPercentToPass()
         {

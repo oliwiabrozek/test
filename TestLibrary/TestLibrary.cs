@@ -68,6 +68,11 @@ namespace TestLibrary
             return questionsList[index];
         }
 
+        public List<Question> GetQUestionList()
+        {
+            return questionsList;
+        }
+
 		public void SetPoints(int questionIndex, int answerIndex, double points)
 		{
 			questionsList[questionIndex].AnswersList[answerIndex-1].Points = points;

@@ -46,6 +46,7 @@ namespace Test.Presenter
 
         private void VievLoadAnswers(int index)
         {   //te elementy powinny sie pobierać z modelu
+            Console.WriteLine("ILOŚ PYTAŃ: " + model.AmountOfQuestions(testLibrary.GetQUestionList()));
             vievTest.Design.CheckboxAValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(0).GetAnswer;
             vievTest.Design.CheckboxBValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(1).GetAnswer;
             vievTest.Design.CheckboxCValue = testLibrary.GetQuestsionListElement(index).GetAnswerListElement(2).GetAnswer;
@@ -66,14 +67,15 @@ namespace Test.Presenter
             if (score <= 0)
                  percentScore = 0;
             else
-                percentScore = (score / maxScore);
+                percentScore = Math.Round((score / maxScore), 2) * 100;
+
             String result;
             if (percentScore >= percentToPass)
                 result = "pozytywny";
             else
                 result = "negatywny";
 
-            MessageBox.Show("Liczba uzyskanych punktów: " + score  + "\nLiczba maksymalna punktów: " + maxScore + "\n" + "Wynik procentowy: " + Math.Round(percentScore, 2) + "\nWymagana ilość procent do zdania: " + percentToPass + "\n\nWynik testu: " + result);
+            MessageBox.Show("Liczba uzyskanych punktów: " + score  + "\nLiczba maksymalna punktów: " + maxScore + "\n" + "Wynik procentowy: " + percentScore + "\nWymagana ilość procent do zdania: " + percentToPass + "\n\nWynik testu: " + result);
         }
     }
 }
