@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace TestLibrary
 {
@@ -12,6 +13,7 @@ namespace TestLibrary
 		private List<Question> questionsList;
         private double percentToPass;
 		private String testName;
+		private Author author;
         public Test()
 		{
 			questionsList = new List<Question> { };
@@ -24,9 +26,39 @@ namespace TestLibrary
             this.questionsList = questionList;
         }
 
+		public Test(String name, double percentToPass, List<Question> questionList, Author author)
+		{
+			questionsList = new List<Question> { };
+			this.testName = name;
+			this.percentToPass = percentToPass;
+			this.questionsList = questionList;
+			this.author = author;
+		}
+
+		public Author SetAuthor
+		{
+			//get { return this.author; }
+			set { this.author = value; }
+		}
+
 		public void addQuestion(Question question)
 		{
 			questionsList.Add(question);
+		}
+		
+		public List<Question> QuestionsList
+		{
+			get { return this.questionsList; }
+		}
+
+		public void changeQuestion(List<Question> questionsList, int questionTabIndex, string question)
+		{
+			questionsList[questionTabIndex].QuestionContent = question;
+		}
+
+		public void changeAnswer(List<Question> quesList, int quesTabIndex, int ansIndex, string answer)
+		{
+			questionsList[quesTabIndex].GetAnswerListElement(ansIndex).GetAnswer = answer;
 		}
 
 		public string TestName
@@ -41,16 +73,6 @@ namespace TestLibrary
 			set { percentToPass = value; }
 		}
 
-
-		public bool checkIfQuesInList(Question q)
-		{
-			if (questionsList.Contains(q))
-			{
-				return true;
-			}
-			else
-				return false;
-		}
 
 		public void AddAnswers(int i, Answer a)
 		{
@@ -71,6 +93,40 @@ namespace TestLibrary
 		{
 			questionsList[questionIndex].AnswersList[answerIndex-1].Points = points;
 		}
+		public double GetPoints(int questionIndex, int answerIndex)
+		{
+			return questionsList[questionIndex].GetAnswerListElement(answerIndex).Points;
+		}
+
+		public XmlElement questionsListToXmlElement(XmlDocument doc)
+		{
+			XmlElement element = doc.CreateElement("questions");
+			foreach (Question question in questionsList)
+			{
+				element.AppendChild(question.ToXmlElement(doc));
+			}
+			return element;
+		}
+
+		public XmlElement ToXmlElement(XmlDocument doc)
+		{
+			XmlElement element = doc.CreateElement("test");
+			element.AppendChild(this.author.ToXmlElement(doc));
+			element.AppendChild(this.questionsListToXmlElement(doc));
+			XmlAttribute nameAttribute = doc.CreateAttribute("name");
+			nameAttribute.InnerText = this.testName;
+			element.Attributes.Append(nameAttribute);
+			XmlAttribute percentToPassAttribute = doc.CreateAttribute("percent_to_pass");
+			percentToPassAttribute.InnerText = this.PercentToPass.ToString();
+			element.Attributes.Append(percentToPassAttribute);
+			return element;
+		}
+		public void SaveToFile(string path)
+		{
+			XmlDocument doc = new XmlDocument();
+			doc.AppendChild(ToXmlElement(doc));
+			doc.Save(path + "\\" + GetTestName() + ".xml");
+		}
 
 	}
 
@@ -89,6 +145,13 @@ namespace TestLibrary
 			set { name = value; }
 		}
 
+		public XmlElement ToXmlElement(XmlDocument doc)
+		{
+			XmlElement element = doc.CreateElement("author");
+			element.InnerText = this.name;
+			return element;
+		}
+
 	}
 
     public class Question
@@ -96,6 +159,14 @@ namespace TestLibrary
         private String question;
         private List<Answer> answersList;
         private uint index;
+		private int questionIndex;
+
+		public int QuestionIndex
+		{
+			get { return this.questionIndex; }
+			set { this.questionIndex = value; }
+		}
+
         public Question () {}
         public Question(String question)
         {
@@ -115,10 +186,26 @@ namespace TestLibrary
 			return answersList[index];
 		}
 
+		public int GetAnswersListCount()
+		{
+			return answersList.Count();
+		}
+
+		public void SetAnswerListElement(int index, string answer)
+		{
+			answersList[index].GetAnswer = answer;
+		}
+
 		public String GetQuestion()
         {
             return question;
         }
+
+		public string QuestionContent
+		{
+			get { return this.question; }
+			set { this.question = value; }
+		}
 
 		public string GetterQuestion
 		{
@@ -130,25 +217,31 @@ namespace TestLibrary
 			get { return this.answersList; }
 		}
 
-        public Answer GetAnswerListElement(int index)
-        {
-            return answersList[index];
-        }
 
 
-    }
+		public XmlElement ToXmlElement(XmlDocument doc)
+		{
+			XmlElement element = doc.CreateElement("question");
+			foreach (Answer answer in answersList)
+			{
+				element.AppendChild(answer.ToXMLElement(doc));
+			}
+			XmlAttribute contentAttribute = doc.CreateAttribute("content");
+			contentAttribute.InnerText = question;
+			element.Attributes.Append(contentAttribute);
+			XmlAttribute indexAttribute = doc.CreateAttribute("index");
+			indexAttribute.InnerText = questionIndex.ToString();
+			element.Attributes.Append(indexAttribute);
+			return element;
+		}
+
+
+	}
 
 	public class Answer
 	{
         private string answer;
         private double points; // dla tego konkretnego pytania
-
-		//mój konstruktor - Oliwia
-		public Answer(string answer, uint questionIndex)
-		{
-			this.answer = answer;
-			
-		}
 
         public Answer(string answer, double points)
         {
@@ -163,20 +256,23 @@ namespace TestLibrary
 			set { this.answer = value; }
 		}
 
-        public string GetAnswerr()
-        {
-            return answer;
-        }
-
         public double Points
 		{
 			get { return this.points; }
 			set { this.points = value; }
 		}
+
+		public XmlElement ToXMLElement(XmlDocument doc)
+		{
+			XmlElement element = doc.CreateElement("answer");
+			element.InnerText = this.answer;
+			XmlAttribute attribute = doc.CreateAttribute("points");
+			attribute.InnerText = this.points.ToString();
+			element.Attributes.Append(attribute);
+			return element;
+		}
+
 	}
 
-	public class Score
-	{
-		// liczy wynik dla całego testu? 
-	}
+
 }

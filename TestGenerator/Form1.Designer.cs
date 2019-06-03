@@ -135,6 +135,7 @@
 			this.saveTestButton.TabIndex = 25;
 			this.saveTestButton.Text = "Zapisz test";
 			this.saveTestButton.UseVisualStyleBackColor = true;
+			this.saveTestButton.Click += new System.EventHandler(this.saveTestButton_Click);
 			// 
 			// deleteQuestionButton
 			// 
@@ -144,6 +145,7 @@
 			this.deleteQuestionButton.TabIndex = 24;
 			this.deleteQuestionButton.Text = "Usuń pytanie";
 			this.deleteQuestionButton.UseVisualStyleBackColor = true;
+			this.deleteQuestionButton.Click += new System.EventHandler(this.deleteQuestionButton_Click);
 			// 
 			// addQuesionButton
 			// 
@@ -186,14 +188,14 @@
 			// 
 			// testNameTextBox
 			// 
-			this.testNameTextBox.Location = new System.Drawing.Point(112, 2);
+			this.testNameTextBox.Location = new System.Drawing.Point(112, 27);
 			this.testNameTextBox.Name = "testNameTextBox";
 			this.testNameTextBox.Size = new System.Drawing.Size(100, 20);
 			this.testNameTextBox.TabIndex = 19;
 			// 
 			// authorTextBox
 			// 
-			this.authorTextBox.Location = new System.Drawing.Point(112, 28);
+			this.authorTextBox.Location = new System.Drawing.Point(112, 2);
 			this.authorTextBox.Name = "authorTextBox";
 			this.authorTextBox.Size = new System.Drawing.Size(100, 20);
 			this.authorTextBox.TabIndex = 18;
@@ -224,6 +226,7 @@
 			this.changeQuestionButton.TabIndex = 33;
 			this.changeQuestionButton.Text = "Zmień pytanie";
 			this.changeQuestionButton.UseVisualStyleBackColor = true;
+			this.changeQuestionButton.Click += new System.EventHandler(this.changeQuestionButton_Click);
 			// 
 			// addAsnwerButton
 			// 
@@ -243,6 +246,7 @@
 			this.deleteAnswerButton.TabIndex = 31;
 			this.deleteAnswerButton.Text = "Usuń odpowiedź";
 			this.deleteAnswerButton.UseVisualStyleBackColor = true;
+			this.deleteAnswerButton.Click += new System.EventHandler(this.deleteAnswerButton_Click);
 			// 
 			// changeAnswerButton
 			// 
