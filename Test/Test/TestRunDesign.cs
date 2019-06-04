@@ -162,7 +162,7 @@ namespace Test
             }
             else
             {
-                Console.WriteLine("Nie znaznaczono żadnej odpowiedzi");
+                //nie zaznaoczono odp
             }
 
             if (index < anountOfQ)

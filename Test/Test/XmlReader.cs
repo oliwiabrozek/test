@@ -21,7 +21,6 @@ namespace Test
             XmlDoc = new XmlDocument();
             if (File.Exists(Path))
             {
-                Console.WriteLine("ładuje plik");
                 XmlDoc.Load(@Path); //Załadowanie pliku XML do pamięci przy pomocy gotowej metody klasy XmlDocument
                 XmlDoc2 = XDocument.Load(Path);
             }
