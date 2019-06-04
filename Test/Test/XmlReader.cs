@@ -21,7 +21,8 @@ namespace Test
             XmlDoc = new XmlDocument();
             if (File.Exists(Path))
             {
-                XmlDoc.Load(Path); //Załadowanie pliku XML do pamięci przy pomocy gotowej metody klasy XmlDocument
+                Console.WriteLine("ładuje plik");
+                XmlDoc.Load(@Path); //Załadowanie pliku XML do pamięci przy pomocy gotowej metody klasy XmlDocument
                 XmlDoc2 = XDocument.Load(Path);
             }
             else
@@ -59,7 +60,6 @@ namespace Test
                     foreach (XmlNode item in node.ChildNodes)
                     {
                         Answers.Add(item.InnerText);
-                        Console.WriteLine("DODAJE: " + item.InnerText);
                     }
                 }
             }

@@ -8,6 +8,7 @@ namespace Test.Viev
 {
     interface InterfaceTest
     {
+        event Action<string> LoadPath;
         InterfaceDesign Design { get; }
     }
 }

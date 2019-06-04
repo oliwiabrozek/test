@@ -63,9 +63,8 @@
             this.checkBoxA.AutoSize = true;
             this.checkBoxA.Location = new System.Drawing.Point(15, 83);
             this.checkBoxA.Name = "checkBoxA";
-            this.checkBoxA.Size = new System.Drawing.Size(39, 21);
+            this.checkBoxA.Size = new System.Drawing.Size(18, 17);
             this.checkBoxA.TabIndex = 5;
-            this.checkBoxA.Text = "A";
             this.checkBoxA.UseVisualStyleBackColor = true;
             this.checkBoxA.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
@@ -74,9 +73,8 @@
             this.checkBoxB.AutoSize = true;
             this.checkBoxB.Location = new System.Drawing.Point(15, 121);
             this.checkBoxB.Name = "checkBoxB";
-            this.checkBoxB.Size = new System.Drawing.Size(39, 21);
+            this.checkBoxB.Size = new System.Drawing.Size(18, 17);
             this.checkBoxB.TabIndex = 6;
-            this.checkBoxB.Text = "B";
             this.checkBoxB.UseVisualStyleBackColor = true;
             this.checkBoxB.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
@@ -85,9 +83,8 @@
             this.checkBoxC.AutoSize = true;
             this.checkBoxC.Location = new System.Drawing.Point(15, 158);
             this.checkBoxC.Name = "checkBoxC";
-            this.checkBoxC.Size = new System.Drawing.Size(39, 21);
+            this.checkBoxC.Size = new System.Drawing.Size(18, 17);
             this.checkBoxC.TabIndex = 7;
-            this.checkBoxC.Text = "C";
             this.checkBoxC.UseVisualStyleBackColor = true;
             this.checkBoxC.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 
@@ -96,9 +93,8 @@
             this.checkBoxD.AutoSize = true;
             this.checkBoxD.Location = new System.Drawing.Point(15, 195);
             this.checkBoxD.Name = "checkBoxD";
-            this.checkBoxD.Size = new System.Drawing.Size(40, 21);
+            this.checkBoxD.Size = new System.Drawing.Size(18, 17);
             this.checkBoxD.TabIndex = 8;
-            this.checkBoxD.Text = "D";
             this.checkBoxD.UseVisualStyleBackColor = true;
             this.checkBoxD.CheckedChanged += new System.EventHandler(this.checkBox_CheckedChanged);
             // 

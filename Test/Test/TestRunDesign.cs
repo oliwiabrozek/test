@@ -85,6 +85,11 @@ namespace Test
 
         private void TestRunDesign_Load(object sender, EventArgs e)
         {
+
+        }
+
+        public void StartTest()
+        {
             if (LoadTestName != null)
                 LoadTestName();
             if (LoadQuestions != null) //pierwsze pytanie
@@ -94,8 +99,8 @@ namespace Test
             if (LoadAnswers != null)
                 LoadAnswers(index);
             index++;
+            EnableDisableCheckbox();
         }
-
         public void checkBox_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkedElement = (CheckBox)sender;
@@ -135,11 +140,9 @@ namespace Test
             CheckboxDValue = "";
             if (checkBoxA.Checked)
             {
-                //Console.WriteLine("Zaznaczono A");
                 if (AddPoints != null)
                 {
                     AddPoints(index, 0);
-                    //Console.WriteLine("DOdaje do A");
                 }
             }
             else if (checkBoxB.Checked)
@@ -161,6 +164,7 @@ namespace Test
             {
                 Console.WriteLine("Nie znaznaczono żadnej odpowiedzi");
             }
+
             if (index < anountOfQ)
             {
                 if (LoadQuestions != null)
@@ -175,15 +179,39 @@ namespace Test
             }
             else
             {
-                if(Summary != null)
+                this.Visible = false;
+                if (Summary != null)
                     Summary();
+                System.Environment.Exit(0);
+                
             }
+
+            EnableDisableCheckbox();
 
             checkBoxA.Checked = false; 
             checkBoxB.Checked = false; 
             checkBoxC.Checked = false; 
             checkBoxD.Checked = false; 
+        }
 
+        void EnableDisableCheckbox()
+        {
+            if (checkBoxA.Text.Equals(""))
+                checkBoxA.Enabled = false;
+            else
+                checkBoxA.Enabled = true;
+            if (checkBoxB.Text.Equals(""))
+                checkBoxB.Enabled = false;
+            else
+                checkBoxB.Enabled = true;
+            if (checkBoxC.Text.Equals(""))
+                checkBoxC.Enabled = false;
+            else
+                checkBoxC.Enabled = true;
+            if (checkBoxD.Text.Equals(""))
+                checkBoxD.Enabled = false;
+            else
+                checkBoxD.Enabled = true;
         }
     }
 }

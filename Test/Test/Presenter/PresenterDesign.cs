@@ -29,6 +29,7 @@ namespace Test.Presenter
             this.vievTest.Design.LoadAnswers += VievLoadAnswers;
             this.vievTest.Design.AddPoints += VievAddPoints;
             this.vievTest.Design.Summary += VievSummary;
+            this.vievTest.LoadPath += VievLoadPath;
         }
 
         private void VievLoadTestName()
@@ -47,7 +48,6 @@ namespace Test.Presenter
 
         private void VievLoadAnswers(int index)
         {   //te elementy powinny sie pobierać z modelu
-            Console.WriteLine("ILOŚ PYTAŃ: " + model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList()));
             amountOfAnswers = model.AmountOfQuestions(testLibrary.GetQuestsionListElement(index).GetAnswerList());
             if(amountOfAnswers == 1)
             {
@@ -75,10 +75,7 @@ namespace Test.Presenter
         }
 
         private void VievAddPoints(int indexQue, int indexAns)
-        {//w xml metodach masz napisane co zrobic kretynie jebany
-            Console.WriteLine("INDX " + indexQue + " AMOU: " + amountOfAnswers);
-            //Console.WriteLine("INDEKS: " + (indexQue) + "INDEKS A :" + (indexAns));
-            Console.WriteLine("DODAJE TYLE PKT: " + testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);
+        {
            model.AddPoint(testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);
         }
 
@@ -100,6 +97,12 @@ namespace Test.Presenter
                 result = "negatywny";
 
             MessageBox.Show("Liczba uzyskanych punktów: " + score  + "\nLiczba maksymalna punktów: " + maxScore + "\n" + "Wynik procentowy: " + percentScore + "\nWymagana ilość procent do zdania: " + percentToPass + "\n\nWynik testu: " + result);
+        }
+
+        private void VievLoadPath(string path)
+        {
+            model.GetPath(path);
+            //model.ModelLoadPath(path);
         }
     }
 }

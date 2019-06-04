@@ -10,16 +10,20 @@ namespace Test.Model
 {
     class ModelTest
     {
-        XmlReader xml = new XmlReader(ModelLoadPath());
+        XmlReader xml;
         TestLibrary.Test libraryT = new TestLibrary.Test();
         Score score = new Score();
         Question libraryQ = new Question();
         double max = 0;
-        public static String ModelLoadPath()
+        public  void GetPath(string path)
+        {
+            xml = new XmlReader(path);
+        }
+        /*public static String ModelLoadPath()
         {
             string path = Directory.GetParent(Directory.GetParent(Directory.GetParent(Environment.CurrentDirectory.ToString()).ToString()).ToString()).ToString() + @"\XMLTest.xml";
             return path;
-        }
+        }*/
 
         public TestLibrary.Test CreateTest()
         {
@@ -37,7 +41,6 @@ namespace Test.Model
             int n = xml.GetNumberOfItems("question");
             if (n <= 0)
             {
-                Console.WriteLine("KONIEC PYTAN");
                 System.Environment.Exit(0);
             }
             List<Question> question = new List<Question>();
@@ -61,20 +64,16 @@ namespace Test.Model
                 ListOfAnswers.Add(new Answer(element, points[x]));
                 x++;
             }
-            foreach (double xd in points)
-                Console.WriteLine("POINTS: " + xd);
             return ListOfAnswers;
         }
 
         public void AddPoint(double point)
         { 
             score.Points = score.Points + point;
-            Console.WriteLine("SUMA PKT: " + score.Points);
         }
 
         public double Score()
         {
-            Console.WriteLine("ZWRACAM WYNIK");
             return score.Points;
         }
 
@@ -85,15 +84,11 @@ namespace Test.Model
 
         public void CountMaxScore(List<double> points)
         {
-            /*foreach (double xd in points)
-                Console.WriteLine("ASD: " + xd);*/
             max = max + points.Max();
-            //Console.WriteLine("MAX: " + max);
         }
 
         public double GetMaxScore()
         {
-            Console.WriteLine(max);
             return max;
         }
 
