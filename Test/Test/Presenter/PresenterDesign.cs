@@ -75,7 +75,7 @@ namespace Test.Presenter
         }
 
         private void VievAddPoints(int indexQue, int indexAns)
-        {
+        {//w xml metodach masz napisane co zrobic kretynie jebany
             Console.WriteLine("INDX " + indexQue + " AMOU: " + amountOfAnswers);
             //Console.WriteLine("INDEKS: " + (indexQue) + "INDEKS A :" + (indexAns));
             Console.WriteLine("DODAJE TYLE PKT: " + testLibrary.GetQuestsionListElement(indexQue-1).GetAnswerListElement(indexAns).Points);

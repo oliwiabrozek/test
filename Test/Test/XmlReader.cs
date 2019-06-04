@@ -14,6 +14,7 @@ namespace Test
     {
         public XmlDocument XmlDoc;
         public XDocument XmlDoc2;
+        int IndexForValueOfPointsInNextQuesiotn = 0;
         public XmlReader(String Path)
         {
             
@@ -69,13 +70,13 @@ namespace Test
         {//zrób tak, żw pobiera od indeksu do ilości odpowiedzi
             List<double> ListOfPoints = new List<double>();
             XmlNodeList points = XmlDoc.SelectNodes("/test/questions/question[@index = '" + index + "']/answer[@points]");
-            int i = 0;
+            
             foreach (XmlNode node in points)
             {
                 foreach (XmlNode item in node)
                 {
-                    ListOfPoints.Add(double.Parse(GetAttributeValue(i, "answer", "points")));
-                    i++;
+                    ListOfPoints.Add(double.Parse(GetAttributeValue(IndexForValueOfPointsInNextQuesiotn, "answer", "points")));
+                    IndexForValueOfPointsInNextQuesiotn++;
                 }
             }
             return ListOfPoints;
